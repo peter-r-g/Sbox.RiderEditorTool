@@ -24,6 +24,7 @@ public static class RiderEditor
 		{
 			Log.Error( $"Rider no longer exists at \"{riderInstallation}\" Cookie will be wiped." );
 			Cookie.SetString( "RiderEditor.ExePath", string.Empty );
+			return;
 		}
 		
 		var process = new Process();
