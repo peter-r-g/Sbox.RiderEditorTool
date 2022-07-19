@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
-using Sandbox;
 using Tools;
 
 namespace RiderEditor;
 
 public static class RiderEditor
 {
-	public const string JetBrainsFolder = "C:\\Program Files\\JetBrains";
+	private const string RiderCookie = "RiderEditor.ExePath";
+	private const string JetBrainsFolder = "C:\\Program Files\\JetBrains";
 
 	[Menu( "Editor", "Rider/Open Rider" )]
 	public static void OpenRiderEditor()
 	{
-		if ( !Cookie.TryGetString( "RiderEditor.ExePath", out var riderInstallation ) ||
+		if ( !Cookie.TryGetString( RiderCookie, out var riderInstallation ) ||
 		     string.IsNullOrWhiteSpace( riderInstallation ) )
 		{
 			Log.Error( "No Rider installation selected. Use Rider/Choose Rider Installation" );
@@ -46,6 +46,6 @@ public static class RiderEditor
 			dialog.Directory = JetBrainsFolder;
 
 		if ( dialog.Execute() )
-			Cookie.SetString( "RiderEditor.ExePath", dialog.SelectedFile );
+			Cookie.SetString( RiderCookie, dialog.SelectedFile );
 	}
 }
