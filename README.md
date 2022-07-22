@@ -1,4 +1,6 @@
-# Rider Editor Support
+# Rider Editor Support (Obsolete)
+This has now been added to S&box so you no longer need this repository.
+
 The `CodeEditor.Rider.cs` file adds Rider as a supported code editor within S&box. This means you can open the S&box solution and code files from within S&box with no extra effort!
 
 ## Media
